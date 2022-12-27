@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ntmhuyen_datn_vpn/constants.dart';
+import 'package:ntmhuyen_datn_vpn/country/country.dart';
 
 class CountryScreen extends StatefulWidget {
   const CountryScreen({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _CountryScreenState extends State<CountryScreen> {
 
             //search
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               decoration: BoxDecoration(
                   color: Neutral_100,
                   borderRadius: BorderRadius.circular(10)
@@ -45,7 +46,41 @@ class _CountryScreenState extends State<CountryScreen> {
                     focusedBorder: InputBorder.none,
                 ),
               ),
-            )
+            ),
+
+            const SizedBox(
+              height: 16,
+            ),
+            Expanded(child: ListView.builder(
+
+              itemCount: flaglist.length,
+              itemBuilder: (context,index)=>Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                    color: Neutral_100,
+                    borderRadius: BorderRadius.circular(10)
+                ),
+                child:ListTile(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  leading: Image.asset(
+                    flaglist[index].image,
+                    height: 35,
+                    width: 35,
+                  ),
+                  title: Text(
+                    flaglist[index].title,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                ) ,
+            ),
+              ),))
+
           ],
         ),
       ),
