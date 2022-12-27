@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ntmhuyen_datn_vpn/constants.dart';
 import 'package:ntmhuyen_datn_vpn/screen/country/country_screen.dart';
+import 'package:ntmhuyen_datn_vpn/screen/language/language_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -67,7 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LanguageScreen()));
+              },
               leading: const Icon(
                 Icons.language,
                 size: 24,
