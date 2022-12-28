@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ntmhuyen_datn_vpn/constants.dart';
+import 'package:VPN_MHuyen/constants.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({Key? key}) : super(key: key);
