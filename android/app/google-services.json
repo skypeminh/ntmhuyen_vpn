@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193009346627",
+    "project_id": "vpn-ntmhuyen",
+    "storage_bucket": "vpn-ntmhuyen.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193009346627:android:8dfa2d6f32d82fc5138cf6",
+        "android_client_info": {
+          "package_name": "com.example.ntmhuyen_datn_vpn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193009346627-oi1bqta9rudgjok6ocbjeajsfhqq2582.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIV0R_hpilYVQVUiE-JbYIcuAjdpAMRNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193009346627-oi1bqta9rudgjok6ocbjeajsfhqq2582.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

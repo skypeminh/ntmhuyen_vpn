@@ -1,0 +1,79 @@
+[
+  {
+    "serverId": 1,
+    "name": "Viet Nam",
+    "isFree": true,
+    "src": "assets/country/vietnam.png",
+    "locations": 7
+  },
+  {
+    "serverId": 2,
+    "name": "Belgium",
+    "isFree": false,
+    "src": "assets/country/belgium.png",
+    "locations": 5
+  },
+  {
+    "serverId": 3,
+    "name": "Canada",
+    "isFree": false,
+    "src": "assets/country/canada.png",
+    "locations": 6
+  },
+  {
+    "serverId": 4,
+    "name": "China",
+    "isFree": true,
+    "src": "assets/country/china.png",
+    "locations": 9
+  },
+  {
+    "serverId": 5,
+    "name": "England",
+    "isFree": false,
+    "src": "assets/country/england.png",
+    "locations": 4
+  },
+  {
+    "serverId": 5,
+    "name": "India",
+    "isFree": false,
+    "src": "assets/country/india.png",
+    "locations": 4
+  },
+  {
+    "serverId": 5,
+    "name": "Korea",
+    "isFree": false,
+    "src": "assets/country/korea.png",
+    "locations": 4
+  },
+  {
+    "serverId": 5,
+    "name": "Mexico",
+    "isFree": false,
+    "src": "assets/country/mexico.png",
+    "locations": 4
+  },
+  {
+    "serverId": 5,
+    "name": "Russia",
+    "isFree": false,
+    "src": "assets/country/russia.png",
+    "locations": 4
+  },
+  {
+    "serverId": 5,
+    "name": "Singapore",
+    "isFree": false,
+    "src": "assets/country/singapore.png",
+    "locations": 4
+  },
+  {
+    "serverId": 5,
+    "name": "Unit State",
+    "isFree": false,
+    "src": "assets/country/us.png",
+    "locations": 4
+  }
+]

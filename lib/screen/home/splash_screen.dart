@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:VPN_MHuyen/screen/home/home_screen.dart';
+import 'package:VPN_MHuyen/login/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 3), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
     });
     return Scaffold(
       body: Center(
