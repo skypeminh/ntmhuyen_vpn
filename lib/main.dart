@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ntmhuyen_datn_vpn/screen/home/splash_screen.dart';
+import 'package:VPN_MHuyen/screen/home/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

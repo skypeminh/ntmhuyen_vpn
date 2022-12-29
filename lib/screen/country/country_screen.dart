@@ -39,11 +39,11 @@ class _CountryScreenState extends State<CountryScreen> {
                   borderRadius: BorderRadius.circular(10)
               ),
               child: TextFormField(
-                  decoration: const InputDecoration(
-                    suffixIcon: Icon(Icons.search),
-                    hintText: "Search",
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.search, color: Colors.grey,),
+                  hintText: "Search",
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
                 ),
               ),
             ),
@@ -57,28 +57,28 @@ class _CountryScreenState extends State<CountryScreen> {
               itemBuilder: (context,index)=>Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                decoration: BoxDecoration(
-                    color: Neutral_100,
-                    borderRadius: BorderRadius.circular(10)
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  decoration: BoxDecoration(
+                      color: Neutral_100,
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child:ListTile(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    leading: Image.asset(
+                      flaglist[index].image,
+                      height: 35,
+                      width: 35,
+                    ),
+                    title: Text(
+                      flaglist[index].title,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
+                  ) ,
                 ),
-                child:ListTile(
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
-                  leading: Image.asset(
-                    flaglist[index].image,
-                    height: 35,
-                    width: 35,
-                  ),
-                  title: Text(
-                    flaglist[index].title,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
-                  ),
-                ) ,
-            ),
               ),))
 
           ],

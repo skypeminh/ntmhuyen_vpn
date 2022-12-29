@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:VPN_MHuyen/constants.dart';
 import 'package:VPN_MHuyen/screen/country/country_screen.dart';
@@ -7,12 +9,35 @@ import 'package:VPN_MHuyen/screen/language/language_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isactive = false;
+
+  Duration _duration = const Duration();
+  Timer? _timer;
+
+  startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      const addSeconds = 1;
+      setState(() {
+        final seconds = _duration.inSeconds + addSeconds;
+        _duration = Duration(seconds: seconds);
+      });
+    });
+  }
+
+  stopTimer() {
+    setState(() {
+      _timer?.cancel();
+      _duration = const Duration();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
@@ -157,16 +182,16 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: _size.height * 0.11,
+              height: _size.height * 0.08,
             ),
 
             Center(
               child: InkWell(
                 onTap: () {
-                  setState(() {
-                    isactive = !isactive;
-                  });
+                    isactive ? stopTimer() : startTimer();
+                    setState(() => isactive = !isactive);
                 },
+
                 child: Material(
                   elevation: 5,
                   borderRadius: BorderRadius.circular(150),
@@ -210,8 +235,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+
+            SizedBox(height: _size.height * 0.02,),
+            _countDownWidget(_size),
             SizedBox(
-              height: _size.height * 0.11,
+              height: _size.height * 0.1,
             ),
 
 
@@ -281,9 +309,9 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(5),
+                    padding: EdgeInsets.all(6),
                     decoration: BoxDecoration(
-                      color: Neutral_100.withOpacity(0.2),
+                      color: Neutral_100,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
@@ -292,7 +320,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 12,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -304,8 +332,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontWeight: FontWeight.w500,
                             color: Primary_700),
                       ),
+                      const SizedBox(
+                        height: 2,
+                      ),
                       Text(
-                        isactive == true ? "128kb" : "0,0kb",
+                        isactive == true ? "256kb" : "0,0kb",
                         style:
                         const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
@@ -313,18 +344,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const Spacer(),
                   Container(
-                    padding: EdgeInsets.all(5),
+                    padding: EdgeInsets.all(6),
                     decoration: BoxDecoration(
-                      color: Neutral_100.withOpacity(0.2),
+                      color: Neutral_100,
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
-                      Icons.arrow_downward,
+                      Icons.arrow_upward,
                       color: Primary_700,
                     ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 12,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -336,12 +367,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontWeight: FontWeight.w500,
                             color: Primary_700),
                       ),
+                      const SizedBox(
+                        height: 2,
+                      ),
                       Text(
                         isactive == true ? "128kb" : "0,0kb",
                         style:
                         const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
+                  ),
+                  const SizedBox(
+                    width: 10,
                   )
                 ],
               ),
@@ -351,6 +388,21 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  Widget _countDownWidget(Size size) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(_duration.inMinutes.remainder(60));
+    final seconds = twoDigits(_duration.inSeconds.remainder(60));
+    final hours = twoDigits(_duration.inHours.remainder(60));
+
+    return Text(
+      '$hours : $minutes : $seconds',
+      style: TextStyle(
+          color: isactive == true ? Primary_700 : Colors.grey,
+          fontSize: 24
+      ),
+    );
+  }
+
 }
 
-// now we build server list screen , first of all we have to build model of our servers
